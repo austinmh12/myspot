@@ -5,6 +5,7 @@ from spotipy import Spotify as _Spotify
 from spotipy.oauth2 import SpotifyClientCredentials as SCC
 from spotipy.util import prompt_for_user_token as user_token
 from spotipy.exceptions import SpotifyException
+from .client_info import USER_ID, CLIENT_ID, CLIENT_SECRET
 
 log = logging.getLogger(__name__)
 fhandler = logging.FileHandler('/home/austinmh12/Documents/Code/Python/myspot.log')
@@ -15,10 +16,7 @@ log.addHandler(shandler)
 log.addHandler(fhandler)
 log.setLevel(logging.INFO)
 
-USER_ID = '1242648932'
-CLIENT_ID = 'fb7d42a9e9524115ab4078b8797e7862'
-CLIENT_SECRET = 'f9d5e9242a6f495387cb534f5ff961be'
-CACHE_PATH = '/home/austinmh12/Documents/Code/Python/.cache-1242648932'
+CACHE_PATH = f'/home/austinmh12/Documents/Code/Python/.cache-{USER_ID}'
 
 def get_token(client_id=CLIENT_ID, client_secret=CLIENT_SECRET):
 	auth = SCC(client_id, client_secret)

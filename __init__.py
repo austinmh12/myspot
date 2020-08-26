@@ -1,14 +1,17 @@
 import logging
 import json
 import requests as r
+import sys
 from spotipy import Spotify as _Spotify
 from spotipy.oauth2 import SpotifyClientCredentials as SCC
 from spotipy.util import prompt_for_user_token as user_token
 from spotipy.exceptions import SpotifyException
 from .client_info import USER_ID, CLIENT_ID, CLIENT_SECRET, CACHE_PATH
 
+LOG_PATH = 'C:/Users/austi/Documents/Python/my_spotify_automations/' if sys.platform == 'win32' else '/home/austinmh12/Documents/Code/Python/'
+
 log = logging.getLogger(__name__)
-fhandler = logging.FileHandler('/home/austinmh12/Documents/Code/Python/myspot.log')
+fhandler = logging.FileHandler(f'{LOG_PATH}myspot.log')
 fhandler.setFormatter(logging.Formatter('[%(asctime)s - %(name)s - %(levelname)s] %(message)s'))
 shandler = logging.StreamHandler()
 shandler.setFormatter(logging.Formatter('[%(asctime)s - %(name)s - %(levelname)s] %(message)s'))

@@ -105,6 +105,9 @@ class Playlist:
 	def __eq__(self, p):
 		return self.id == self.p
 
+	def __hash__(self):
+		return hash(self.id)
+
 	def __repr__(self):
 		return f'<myspot.Playlist({self.name})>'
 
@@ -148,6 +151,7 @@ class Artist:
 		self.uri = uri
 		self.urls = kwargs.get('external_urls', {})
 		self.href = kwargs.get('href', '')
+		self.genres = kwargs.get('genres', [])
 
 	@classmethod
 	def from_dict(cls, a_dict):
@@ -158,6 +162,9 @@ class Artist:
 
 	def __eq__(self, a):
 		return self.id == a.id
+
+	def __hash__(self):
+		return hash(self.id)
 
 	def __repr__(self):
 		return f'<myspot.Artist({self.name})>'
@@ -183,6 +190,9 @@ class Album:
 
 	def __eq__(self, a):
 		return self.id == self.a
+
+	def __hash__(self):
+		return hash(self.id)
 
 	def __repr__(self):
 		return f'<myspot.Album({self.name})>'

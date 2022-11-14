@@ -8,7 +8,7 @@ from spotipy.util import prompt_for_user_token as user_token
 from spotipy.exceptions import SpotifyException
 from .client_info import USER_ID, CLIENT_ID, CLIENT_SECRET, CACHE_PATH
 
-LOG_PATH = 'C:/Users/austi/Documents/Python/my_spotify_automations/' if sys.platform == 'win32' else '/home/austinmh12/Documents/Code/Python/'
+LOG_PATH = 'C:/Storage/Code/Python/my_spotify_automations/' if sys.platform == 'win32' else '/home/austinmh12/Documents/Code/Python/'
 
 log = logging.getLogger(__name__)
 fhandler = logging.FileHandler(f'{LOG_PATH}myspot.log')
